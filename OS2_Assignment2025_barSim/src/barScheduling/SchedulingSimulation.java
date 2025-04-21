@@ -25,7 +25,7 @@ public class SchedulingSimulation {
 		//deal with command line arguments if provided
 		if (args.length>=1) noPatrons=Integer.parseInt(args[0]);  //total people to enter room
 		if (args.length>=2) sched=Integer.parseInt(args[1]); 	// alg to use
-		if (args.length>=3) s=Integer.parseInt(args[2]);  //context switch 
+		if (args.length>=3) s=Integer.parseInt(args[2]);  //context switch --> overhead time required for CPU to switch between processes
 		if(args.length>=4) q=Integer.parseInt(args[3]);  // time slice for RR
 		if(args.length>=5) seed=Integer.parseInt(args[4]); // random number seed- set to compare apples with apples		
 		

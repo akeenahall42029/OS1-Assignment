@@ -43,8 +43,8 @@ public class Patron extends Thread {
 			//End do not change
 			
 	        for(int i=0;i<numberOfDrinks;i++) {
-	        	drinksOrder[i]=new DrinkOrder(this.ID); //order a drink (=CPU burst)	        
-	        	//drinksOrder[i]=new DrinkOrder(this.ID,i); //fixed drink order (=CPU burst), useful for testing
+	        	//drinksOrder[i]=new DrinkOrder(this.ID); //order a drink (=CPU burst)
+	        	drinksOrder[i]=new DrinkOrder(this.ID,i); //fixed drink order (=CPU burst), useful for testing
 				System.out.println("Order placed by " + drinksOrder[i].toString()); //output in standard format  - do not change this
 				theBarman.placeDrinkOrder(drinksOrder[i]);
 				drinksOrder[i].waitForOrder();
