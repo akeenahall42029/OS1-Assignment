@@ -15,6 +15,7 @@ public class Patron extends Thread {
 
 	private int ID; //thread ID 
 	private int numberOfDrinks;
+	long waittime =0;
 
 
 	private DrinkOrder [] drinksOrder;

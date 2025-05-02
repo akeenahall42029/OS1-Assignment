@@ -1,0 +1,280 @@
+------Sarah the Barman Scheduling Simulation------
+-------------- with 10 patrons---------------
+-------------- and SJF scheduling ---------------
+Barman started @ 1.746091930479E9 seconds
++new thirsty Patron 0 arrived
+Order placed by 0: Tequila shot
+Working dir = /mnt/c/Users/Akeena/Downloads/OS2_Assignment2025_barSim/OS2_Assignment2025_barSim
++new thirsty Patron 1 arrived
+Order placed by 1: Tequila shot
+---Barman preparing drink for patron 0: Tequila shot
+*** RESPONSE TIME (FIRST DRINK): 1
++new thirsty Patron 2 arrived
+Order placed by 2: Tequila shot
+---Barman has made drink for patron 0: Tequila shot
+---Barman preparing drink for patron 1: Tequila shot
+Drinking patron 0: Tequila shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 0: Vodka shot
+---Barman has made drink for patron 1: Tequila shot
+---Barman preparing drink for patron 2: Tequila shot
+Drinking patron 1: Tequila shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 1: Vodka shot
++new thirsty Patron 3 arrived
+Order placed by 3: Tequila shot
+---Barman has made drink for patron 2: Tequila shot
+Drinking patron 2: Tequila shot
+---Barman preparing drink for patron 0: Vodka shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 2: Vodka shot
+---Barman has made drink for patron 0: Vodka shot
+---Barman preparing drink for patron 3: Tequila shot
+Drinking patron 0: Vodka shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 0: Beer
++new thirsty Patron 4 arrived
+Order placed by 4: Tequila shot
+---Barman has made drink for patron 3: Tequila shot
+---Barman preparing drink for patron 2: Vodka shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 3: Tequila shot
+Order placed by 3: Vodka shot
+---Barman has made drink for patron 2: Vodka shot
+Drinking patron 2: Vodka shot
+---Barman preparing drink for patron 4: Tequila shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 2: Beer
++new thirsty Patron 5 arrived
+Order placed by 5: Tequila shot
+---Barman has made drink for patron 4: Tequila shot
+---Barman preparing drink for patron 3: Vodka shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 4: Tequila shot
+Order placed by 4: Vodka shot
+---Barman has made drink for patron 3: Vodka shot
+---Barman preparing drink for patron 5: Tequila shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 3: Vodka shot
+Order placed by 3: Beer
+---Barman has made drink for patron 5: Tequila shot
++new thirsty Patron 6 arrived
+Drinking patron 5: Tequila shot
+---Barman preparing drink for patron 4: Vodka shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 6: Tequila shot
+Order placed by 5: Vodka shot
+---Barman has made drink for patron 4: Vodka shot
+Drinking patron 4: Vodka shot
+---Barman preparing drink for patron 1: Vodka shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 4: Beer
+---Barman has made drink for patron 1: Vodka shot
++new thirsty Patron 7 arrived
+---Barman preparing drink for patron 6: Tequila shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 1: Vodka shot
+Order placed by 7: Tequila shot
+Order placed by 1: Beer
+---Barman has made drink for patron 6: Tequila shot
+---Barman preparing drink for patron 5: Vodka shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 6: Tequila shot
+Order placed by 6: Vodka shot
+---Barman has made drink for patron 5: Vodka shot
+---Barman preparing drink for patron 7: Tequila shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 5: Vodka shot
++new thirsty Patron 8 arrived
+Order placed by 8: Tequila shot
+Order placed by 5: Beer
+---Barman has made drink for patron 7: Tequila shot
+---Barman preparing drink for patron 6: Vodka shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 7: Tequila shot
+Order placed by 7: Vodka shot
+---Barman has made drink for patron 6: Vodka shot
+---Barman preparing drink for patron 8: Tequila shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 6: Vodka shot
++new thirsty Patron 9 arrived
+Order placed by 9: Tequila shot
+Order placed by 6: Beer
+---Barman has made drink for patron 8: Tequila shot
+---Barman preparing drink for patron 7: Vodka shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 8: Tequila shot
+Order placed by 8: Vodka shot
+---Barman has made drink for patron 7: Vodka shot
+---Barman preparing drink for patron 9: Tequila shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 7: Vodka shot
+Order placed by 7: Beer
+---Barman has made drink for patron 9: Tequila shot
+---Barman preparing drink for patron 8: Vodka shot
+Drinking patron 9: Tequila shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 9: Vodka shot
+---Barman has made drink for patron 8: Vodka shot
+---Barman preparing drink for patron 9: Vodka shot
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 8: Vodka shot
+Order placed by 8: Beer
+---Barman has made drink for patron 9: Vodka shot
+Drinking patron 9: Vodka shot
+---Barman preparing drink for patron 6: Beer
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 9: Beer
+---Barman has made drink for patron 6: Beer
+---Barman preparing drink for patron 8: Beer
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 6: Beer
+---Barman has made drink for patron 8: Beer
+---Barman preparing drink for patron 9: Beer
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 8: Beer
+---Barman has made drink for patron 9: Beer
+Drinking patron 9: Beer
+---Barman preparing drink for patron 0: Beer
+*** RESPONSE TIME (FIRST DRINK): 1
+---Barman has made drink for patron 0: Beer
+---Barman preparing drink for patron 1: Beer
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 0: Beer
+Order placed by 6: Cider
+---Barman has made drink for patron 1: Beer
+---Barman preparing drink for patron 4: Beer
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 1: Beer
+Order placed by 8: Cider
+---Barman has made drink for patron 4: Beer
+---Barman preparing drink for patron 6: Cider
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 4: Beer
+Order placed by 9: Cider
+---Barman has made drink for patron 6: Cider
+---Barman preparing drink for patron 8: Cider
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 6: Cider
+Order placed by 0: Cider
+---Barman has made drink for patron 8: Cider
+---Barman preparing drink for patron 9: Cider
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 8: Cider
+Order placed by 1: Cider
+---Barman has made drink for patron 9: Cider
+---Barman preparing drink for patron 0: Cider
+Drinking patron 9: Cider
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 4: Cider
+---Barman has made drink for patron 0: Cider
+---Barman preparing drink for patron 1: Cider
+Drinking patron 0: Cider
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 6: Red Wine
+---Barman has made drink for patron 1: Cider
+Drinking patron 1: Cider
+---Barman preparing drink for patron 4: Cider
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 8: Red Wine
+---Barman has made drink for patron 4: Cider
+---Barman preparing drink for patron 6: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 4: Cider
+Order placed by 9: Red Wine
+---Barman has made drink for patron 6: Red Wine
+---Barman preparing drink for patron 8: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 6: Red Wine
+Order placed by 0: Red Wine
+---Barman has made drink for patron 8: Red Wine
+---Barman preparing drink for patron 9: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 8: Red Wine
+Order placed by 1: Red Wine
+---Barman has made drink for patron 9: Red Wine
+Drinking patron 9: Red Wine
+---Barman preparing drink for patron 0: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 4: Red Wine
+---Barman has made drink for patron 0: Red Wine
+---Barman preparing drink for patron 1: Red Wine
+Drinking patron 0: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+---Barman has made drink for patron 1: Red Wine
+---Barman preparing drink for patron 4: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 1: Red Wine
+---Barman has made drink for patron 4: Red Wine
+---Barman preparing drink for patron 3: Beer
+Drinking patron 4: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+Patron 6 completed 
+---Barman has made drink for patron 3: Beer
+Drinking patron 3: Beer
+---Barman preparing drink for patron 2: Beer
+*** RESPONSE TIME (FIRST DRINK): 1
+Patron 8 completed 
+---Barman has made drink for patron 2: Beer
+---Barman preparing drink for patron 5: Beer
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 2: Beer
+Patron 9 completed 
+---Barman has made drink for patron 5: Beer
+---Barman preparing drink for patron 7: Beer
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 5: Beer
+Patron 0 completed 
+---Barman has made drink for patron 7: Beer
+Drinking patron 7: Beer
+Patron 1 completed 
+Order placed by 3: Cider
+---Barman preparing drink for patron 3: Cider
+*** RESPONSE TIME (FIRST DRINK): 1
+Patron 4 completed 
+---Barman has made drink for patron 3: Cider
+Order placed by 2: Cider
+Drinking patron 3: Cider
+---Barman preparing drink for patron 2: Cider
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 5: Cider
+---Barman has made drink for patron 2: Cider
+---Barman preparing drink for patron 5: Cider
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 2: Cider
+Order placed by 7: Cider
+---Barman has made drink for patron 5: Cider
+---Barman preparing drink for patron 7: Cider
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 5: Cider
+---Barman has made drink for patron 7: Cider
+Drinking patron 7: Cider
+Order placed by 3: Red Wine
+---Barman preparing drink for patron 3: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+---Barman has made drink for patron 3: Red Wine
+Order placed by 2: Red Wine
+Drinking patron 3: Red Wine
+---Barman preparing drink for patron 2: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+Order placed by 5: Red Wine
+---Barman has made drink for patron 2: Red Wine
+---Barman preparing drink for patron 5: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 2: Red Wine
+Order placed by 7: Red Wine
+---Barman has made drink for patron 5: Red Wine
+---Barman preparing drink for patron 7: Red Wine
+*** RESPONSE TIME (FIRST DRINK): 1
+Drinking patron 5: Red Wine
+---Barman has made drink for patron 7: Red Wine
+Drinking patron 7: Red Wine
+Patron 3 completed 
+Patron 2 completed 
+Patron 5 completed 
+Patron 7 completed 
+------Waiting for Barman------
+Working dir = /mnt/c/Users/Akeena/Downloads/OS2_Assignment2025_barSim/OS2_Assignment2025_barSim
+---Barman is packing up 
+---number interrupts=0
+------Bar closed------

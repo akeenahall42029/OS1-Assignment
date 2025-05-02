@@ -1,0 +1,2 @@
+Scheduling Algorithm: RR
+Response time (first patron served) : 0.00 ms

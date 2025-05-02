@@ -1,0 +1,5 @@
+Scheduling Algorithm: RR
+CPU Utilization: 42.90%
+Total busy time: 0.00 sec
+Total simulation time: 0.00 sec
+Completed orders: 50
