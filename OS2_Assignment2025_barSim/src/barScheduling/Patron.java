@@ -15,7 +15,11 @@ public class Patron extends Thread {
 
 	private int ID; //thread ID 
 	private int numberOfDrinks;
-	long waittime =0;
+	private long totalWaitingTime; // calculate the waiting time for all drinks for the patron
+	private long [] waitingTimes;
+	private long [] orderPlacedTimes; // when each drink was ordered
+	private long [] drinkingEndTimes; // when drinking finished
+	private long [] serviceStartTimes; // when the barman started making drinks
 
 
 	private DrinkOrder [] drinksOrder;
@@ -25,6 +29,12 @@ public class Patron extends Thread {
 		this.startSignal=startSignal;
 		this.theBarman=aBarman;
 		this.numberOfDrinks=5; // number of drinks is fixed
+		// initialize  arrays for calculating waiting times
+		this.waitingTimes = new long[numberOfDrinks];
+		this.totalWaitingTime=0;
+		this.drinkingEndTimes = new long[numberOfDrinks];
+		this.serviceStartTimes = new long[numberOfDrinks];
+		this.orderPlacedTimes = new long[numberOfDrinks];
 		drinksOrder=new DrinkOrder[numberOfDrinks];
 		if (seed>0) random = new Random(seed);// for consistent Patron behaviour
 		else random = new Random();
@@ -46,18 +56,48 @@ public class Patron extends Thread {
 	        for(int i=0;i<numberOfDrinks;i++) {
 	        	//drinksOrder[i]=new DrinkOrder(this.ID); //order a drink (=CPU burst)
 	        	drinksOrder[i]=new DrinkOrder(this.ID,i); //fixed drink order (=CPU burst), useful for testing
+
+
 				System.out.println("Order placed by " + drinksOrder[i].toString()); //output in standard format  - do not change this
 				theBarman.placeDrinkOrder(drinksOrder[i]);
-				drinksOrder[i].waitForOrder();
+
+
+				orderPlacedTimes[i]=System.currentTimeMillis(); //record when the patron ordered the drink
+				System.out.printf("[%d ms] Patron %d ORDERED drink %d: (prep time: %dms)\n",
+						orderPlacedTimes[i], ID, i,
+						drinksOrder[i].getExecutionTime());
+
+
+				System.out.printf("[%d ms] Patron %d WAITING for drink %s\n",
+						System.currentTimeMillis(), ID, drinksOrder[i].toString());
+
+				drinksOrder[i].waitForOrder(); //Wait for drink to be ready
+				serviceStartTimes[i]=System.currentTimeMillis(); // when the barman began working on the drink order
+
 				System.out.println("Drinking patron " + drinksOrder[i].toString());
 				sleep(drinksOrder[i].getImbibingTime()); //drinking drink = "IO"
+				drinkingEndTimes[i]=System.currentTimeMillis();
+
+				//calculate the waiting time (time in the ready queue)
+				waitingTimes[i] = serviceStartTimes[i] - orderPlacedTimes[i];
+				totalWaitingTime += waitingTimes[i];
+				System.out.printf("[%d ms] Patron %d  WAIT TIME = %d ms for order drink: %s \n",
+						System.currentTimeMillis(), ID, waitingTimes[i], drinksOrder[i].toString()
+						);
+				System.out.printf("[%d ms] Patron %d STARTED drinking %s \n",
+						serviceStartTimes[i], ID, drinksOrder[i].toString());
 			}
 
 			System.out.println("Patron "+ this.ID + " completed ");
+			System.out.println("*** Total Waiting Time (for all " + numberOfDrinks + " drinks): " + totalWaitingTime+
+					" ms");
 			
 		} catch (InterruptedException e1) {  //do nothing
 		}
 }
+	public long getTotalWaitingTime() {
+		return totalWaitingTime;
+	}
 }
 	
 

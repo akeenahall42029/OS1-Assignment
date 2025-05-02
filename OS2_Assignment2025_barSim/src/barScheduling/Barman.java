@@ -30,7 +30,11 @@ public class Barman extends Thread {
 	private int completedOrders = 0; // to calculate throughput calculation
 	private double cpu_utilization;
 	private double throughput;
+
+	//variables for turnaround time
 	private long firstOrderStartTime = -1;
+	private long lastDrinkCompletionTime = -1;
+	private long turnaroundtime;
 	private final Map<Integer, Long> patronArrivalTimes = new ConcurrentHashMap<>();
 
 	//Helper function to extract the patronID from DrinkOrder
@@ -73,15 +77,15 @@ public class Barman extends Thread {
 					long startTime = System.currentTimeMillis(); // record when the barman began making a drink
 					//Record the Response time by calculating the arrival of the first patron + when they
 					// received their first drink
-					//TODO: Come back to response time !!!
 					if(firstOrderStartTime == -1){
 						int patronID = getPatronID(currentOrder);
 						long arrivalTime = patronArrivalTimes.get(patronID);
-						System.out.println("Arrival Time of the First Drink (When drink was ordered): " + arrivalTime + " ms");
+						System.out.println("First Drink Order Time: " + arrivalTime + " ms");
 						long currentTime = System.currentTimeMillis();
 						System.out.println("Current time: " +currentTime + " ms");
 						firstOrderStartTime = currentTime - arrivalTime;
-						System.out.println("*** RESPONSE TIME (FIRST DRINK): " + firstOrderStartTime);
+						System.out.println("*** RESPONSE TIME (FIRST DRINK): " + firstOrderStartTime + " ms");
+
 						// logResponseTime(firstOrderStartTime);
 					}
 					System.out.println("---Barman preparing drink for patron "+ currentOrder.toString());
@@ -108,16 +112,15 @@ public class Barman extends Thread {
 
 					//Response Time --> record how long it takes Sarah to begin making
 					// the first ordered drink
-					//TODO: Come back to response time
 					if(firstOrderStartTime == -1){
 						int patronID = getPatronID(currentOrder);
 						long arrivalTime = patronArrivalTimes.get(patronID);
-						System.out.println("Arrival Time of the First Drink (When drink was ordered): " + arrivalTime);
+						System.out.println("First Drink Order Time: " + arrivalTime + " ms");
 						long currentTime = System.currentTimeMillis();
 						System.out.println("Current time: " +currentTime + " ms");
 						firstOrderStartTime = currentTime - arrivalTime;
 						// logResponseTime(firstOrderStartTime);
-						System.out.println("*** RESPONSE TIME (FIRST DRINK): " + firstOrderStartTime);
+						System.out.println("*** RESPONSE TIME (FIRST DRINK): " + firstOrderStartTime + " ms");
 					}
 					System.out.println("---Barman preparing drink for patron "+ currentOrder.toString() );
 					burst=currentOrder.getExecutionTime();
