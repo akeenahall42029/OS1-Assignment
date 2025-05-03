@@ -1,0 +1,4 @@
+Algorithm,# of Patrons,Quantum (q),Context Switch (s),Seed ,Response Time (ms) ,Throughput (drinks/sec),Average Waiting Time (ms) ,Turnaround Time (ms),CPU Utilization (%),Completed Orders,
+SJF,10,5,5,0,29,26,194.14,1.7463E+12,74,50,
+RR,10,5,5,0,16,18,384.82,1.7463E+12,46,50,
+RR,10,5,5,0,25,18,378.44,1.7463E+12,47,50,

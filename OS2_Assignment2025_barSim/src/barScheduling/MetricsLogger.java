@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
+
 public class MetricsLogger {
     private int noPatron;
     private int sched;
@@ -14,7 +15,6 @@ public class MetricsLogger {
     private long seed;
     private Patron [] patrons;
     private Barman barman;
-    private ConcurrentHashMap<String, String> simulationParams = new ConcurrentHashMap(); // may not need
 
     MetricsLogger(int noPatrons, int sched, int s, int q, long seed, Barman barman, Patron [] patrons) {
         this.noPatron = noPatrons;
@@ -68,10 +68,26 @@ public class MetricsLogger {
                     barman.getResponseTime(),
                     barman.getThroughput(),
                     calculateAverageWaitTime(),
-                   // barman.getTurnaroundTime(), --> currently implementing
+                    barman.getTurnaroundTime(),
                     barman.getCPUUtilization(),
                     barman.getCompletedOrders()));
         }
+    }
+
+    public void printMetrics() {
+        System.out.printf("***Metrics: %s,%d,%d,%d,%d,%d,%.2f,%.2f,%d,%.2f,%d\n",
+                getAlgName(),
+                noPatron,
+                q,
+                s,
+                seed,
+                barman.getResponseTime(),
+                barman.getThroughput(),
+                calculateAverageWaitTime(),
+                barman.getTurnaroundTime(),
+                barman.getCPUUtilization(),
+                barman.getCompletedOrders()
+        );
     }
 
 

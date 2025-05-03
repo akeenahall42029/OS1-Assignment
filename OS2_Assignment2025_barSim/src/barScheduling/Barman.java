@@ -33,6 +33,7 @@ public class Barman extends Thread {
 
 	//variables for turnaround time
 	private long firstOrderStartTime = -1;
+	private long firstOrderSubmissionTime = -1;
 	private long lastDrinkCompletionTime = -1;
 	private long turnaroundtime;
 	private final Map<Integer, Long> patronArrivalTimes = new ConcurrentHashMap<>();
@@ -58,7 +59,13 @@ public class Barman extends Thread {
 
 	public void placeDrinkOrder(DrinkOrder order) throws InterruptedException {
 		int patronID = getPatronID(order);
+		// record the time of arrival for the first drink (turnaround time)
+		long currentTime = System.currentTimeMillis();
 		patronArrivalTimes.put(patronID, System.currentTimeMillis()); // record each patron's drink arrival time
+
+		if(firstOrderSubmissionTime == -1){
+			firstOrderSubmissionTime = currentTime;
+		}
 		orderQueue.put(order);
     }
 	
@@ -97,6 +104,8 @@ public class Barman extends Thread {
 
 					System.out.println("---Barman has made drink for patron "+ currentOrder.toString());
 					currentOrder.orderDone();
+					// continuosly update the last drink until the last drink is completed
+					lastDrinkCompletionTime = System.currentTimeMillis();
 					sleep(switchTime);//cost for switching orders
 				}
 			}
@@ -130,6 +139,8 @@ public class Barman extends Thread {
 						completedOrders++;
 						System.out.println("---Barman has made drink for patron "+ currentOrder.toString());
 						currentOrder.orderDone();
+						// continuosly update the last drink until the last drink is completed
+						lastDrinkCompletionTime = System.currentTimeMillis();
 					}
 					else {
 						sleep(q);
@@ -146,18 +157,21 @@ public class Barman extends Thread {
 				
 		} catch (InterruptedException e1) {
 			simEndTime = System.currentTimeMillis();
+			System.out.println("Last drink completion time: " + lastDrinkCompletionTime + " ms");
 			// logCPUUtilization();
 			// CPU Utilization
 			long totalSimTime = simEndTime- simStartTime;
 			double totalTimeInSecs = totalSimTime/1000.0;
 			cpu_utilization =  Math.round(((double)totalDrinkMakingTime/totalSimTime) * 100);
 			throughput = Math.round((double) completedOrders /totalTimeInSecs);
+			turnaroundtime = lastDrinkCompletionTime - firstOrderStartTime;
 			System.out.println("---Barman is packing up ");
 			System.out.println("---number interrupts="+interrupts);
 			System.out.println("*** CPU Utilization: " + cpu_utilization + "%");
 			System.out.println("*** Response Time (Time it took for 1st Patron to Get Their Drink): " + firstOrderStartTime + " ms");
 			System.out.println("*** Completed orders: " + completedOrders);
 			System.out.println("*** Throughput: "+ throughput + " orders/sec");
+			System.out.println("*** Turnaround time (First Drink Submission to Last Drink Completion): "+turnaroundtime + " ms");
 		}
 	}
 	public long getResponseTime(){
@@ -173,6 +187,10 @@ public class Barman extends Thread {
 
 	public int getCompletedOrders(){
 		return completedOrders;
+	}
+
+	public long getTurnaroundTime(){
+		return turnaroundtime;
 	}
 
 

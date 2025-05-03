@@ -5,6 +5,8 @@ package barScheduling;
 
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
@@ -69,5 +71,10 @@ public class SchedulingSimulation {
     	Sarah.interrupt();   //tell Barman to close up
     	Sarah.join(); //wait till she has
       	System.out.println("------Bar closed------");
+		// System.out.println("Working dir = " + System.getProperty("user.dir"));
+		  MetricsLogger logger = new MetricsLogger(noPatrons,sched,s,q,seed,Sarah,patrons);
+		  logger.printMetrics();
+		  logger.writeToCSV("test_results/barMetricsLog.csv");
+		  System.out.println("Metrics written to barMetricsLog.csv");
  	}
 }
