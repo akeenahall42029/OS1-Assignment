@@ -1,3 +1,9 @@
+commit 4df684207584db0a83d78af4dd70cbfa007b27c2
+Author: akeenahall42029 <hallake@DESKTOP-K462FL7.>
+Date:   Sat May 3 21:28:38 2025 +0200
+
+    created barMetricsLog.csv file and completed logging with MetricsLogger class
+
 commit b51bd3c3ec51ae1680f8f84cb8ed89787cce8511
 Author: akeenahall42029 <hallake@DESKTOP-K462FL7.>
 Date:   Sat May 3 00:20:45 2025 +0200
