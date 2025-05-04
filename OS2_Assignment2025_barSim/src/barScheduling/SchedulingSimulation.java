@@ -29,7 +29,7 @@ public class SchedulingSimulation {
 		if (args.length>=2) sched=Integer.parseInt(args[1]); 	// alg to use
 		if (args.length>=3) s=Integer.parseInt(args[2]);  //context switch --> overhead time required for CPU to switch between processes
 		if(args.length>=4) q=Integer.parseInt(args[3]);  // time slice for RR
-		if(args.length>=5) seed=Integer.parseInt(args[4]); // random number seed- set to compare apples with apples		
+		if(args.length>=5) seed=Integer.parseInt(args[4]); // random number seed - set to compare apples with apples
 		
 
 		startSignal= new CountDownLatch(noPatrons+2);//Barman and patrons and main method must be ready
@@ -74,7 +74,7 @@ public class SchedulingSimulation {
 		// System.out.println("Working dir = " + System.getProperty("user.dir"));
 		  MetricsLogger logger = new MetricsLogger(noPatrons,sched,s,q,seed,Sarah,patrons);
 		  logger.printMetrics();
-		  logger.writeToCSV("test_results/barMetricsLog.csv");
+		  logger.writeToCSV("test_results/final_barmanMetricsLogger.csv");
 		  System.out.println("Metrics written to barMetricsLog.csv");
  	}
 }

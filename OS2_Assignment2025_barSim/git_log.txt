@@ -1,3 +1,9 @@
+commit d903b93e80182ad0f40be70fc047994224521b64
+Author: akeenahall42029 <hallake@DESKTOP-K462FL7.>
+Date:   Sun May 4 16:12:00 2025 +0200
+
+    Created barMetricsLog.csv for recording all metrics and ran 100+ tests. However, changing the implementation for the throughput metric so this file will be outdated and the tests will be reran with more columns for throughput (1st, 2nd, 3rd, etc quadrants
+
 commit 4df684207584db0a83d78af4dd70cbfa007b27c2
 Author: akeenahall42029 <hallake@DESKTOP-K462FL7.>
 Date:   Sat May 3 21:28:38 2025 +0200

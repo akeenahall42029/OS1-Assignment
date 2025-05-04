@@ -29,14 +29,15 @@ public class Barman extends Thread {
 	private long simEndTime; // end of simulation measured in ms, used for throughput calculation
 	private int completedOrders = 0; // to calculate throughput calculation
 	private double cpu_utilization;
-	private double throughput;
 
 	//variables for turnaround time
 	private long firstOrderStartTime = -1;
-	private long firstOrderSubmissionTime = -1;
+	private long firstOrderSubmissionTime = -1; // might not need
 	private long lastDrinkCompletionTime = -1;
-	private long turnaroundtime;
 	private final Map<Integer, Long> patronArrivalTimes = new ConcurrentHashMap<>();
+
+	// new implementation for recording when the barman starting working on each drink
+	private final Map<Integer,Long> serviceStartTimes = new ConcurrentHashMap<>();
 
 	//Helper function to extract the patronID from DrinkOrder
 	private int getPatronID(DrinkOrder order){
@@ -82,19 +83,12 @@ public class Barman extends Thread {
 				while(true) {
 					currentOrder=orderQueue.take();
 					long startTime = System.currentTimeMillis(); // record when the barman began making a drink
-					//Record the Response time by calculating the arrival of the first patron + when they
-					// received their first drink
-					if(firstOrderStartTime == -1){
-						int patronID = getPatronID(currentOrder);
-						long arrivalTime = patronArrivalTimes.get(patronID);
-						System.out.println("First Drink Order Time: " + arrivalTime + " ms");
-						long currentTime = System.currentTimeMillis();
-						System.out.println("Current time: " +currentTime + " ms");
-						firstOrderStartTime = currentTime - arrivalTime;
-						System.out.println("*** RESPONSE TIME (FIRST DRINK): " + firstOrderStartTime + " ms");
+					// get the id of the current patron
+					int currPatronID = getPatronID(currentOrder);
+					//retrieve the special key of the current patron's drink to record service time
+					int key = Patron.drinkToKeyMap.get(currentOrder);
+					serviceStartTimes.putIfAbsent(key,startTime);
 
-						// logResponseTime(firstOrderStartTime);
-					}
 					System.out.println("---Barman preparing drink for patron "+ currentOrder.toString());
 					sleep(currentOrder.getExecutionTime()); //processing order (="CPU burst")
 
@@ -118,19 +112,9 @@ public class Barman extends Thread {
 					System.out.println("---Barman waiting for next order ");
 					currentOrder=orderQueue.take();
 					long startTime = System.currentTimeMillis();
+					int key = Patron.drinkToKeyMap.get(currentOrder);
+					serviceStartTimes.putIfAbsent(key,startTime);
 
-					//Response Time --> record how long it takes Sarah to begin making
-					// the first ordered drink
-					if(firstOrderStartTime == -1){
-						int patronID = getPatronID(currentOrder);
-						long arrivalTime = patronArrivalTimes.get(patronID);
-						System.out.println("First Drink Order Time: " + arrivalTime + " ms");
-						long currentTime = System.currentTimeMillis();
-						System.out.println("Current time: " +currentTime + " ms");
-						firstOrderStartTime = currentTime - arrivalTime;
-						// logResponseTime(firstOrderStartTime);
-						System.out.println("*** RESPONSE TIME (FIRST DRINK): " + firstOrderStartTime + " ms");
-					}
 					System.out.println("---Barman preparing drink for patron "+ currentOrder.toString() );
 					burst=currentOrder.getExecutionTime();
 					if(burst<=q) { //within the quantum
@@ -158,57 +142,40 @@ public class Barman extends Thread {
 		} catch (InterruptedException e1) {
 			simEndTime = System.currentTimeMillis();
 			System.out.println("Last drink completion time: " + lastDrinkCompletionTime + " ms");
-			// logCPUUtilization();
 			// CPU Utilization
 			long totalSimTime = simEndTime- simStartTime;
 			double totalTimeInSecs = totalSimTime/1000.0;
 			cpu_utilization =  Math.round(((double)totalDrinkMakingTime/totalSimTime) * 100);
-			throughput = Math.round((double) completedOrders /totalTimeInSecs);
-			turnaroundtime = lastDrinkCompletionTime - firstOrderStartTime;
 			System.out.println("---Barman is packing up ");
 			System.out.println("---number interrupts="+interrupts);
 			System.out.println("*** CPU Utilization: " + cpu_utilization + "%");
-			System.out.println("*** Response Time (Time it took for 1st Patron to Get Their Drink): " + firstOrderStartTime + " ms");
 			System.out.println("*** Completed orders: " + completedOrders);
-			System.out.println("*** Throughput: "+ throughput + " orders/sec");
-			System.out.println("*** Turnaround time (First Drink Submission to Last Drink Completion): "+turnaroundtime + " ms");
 		}
 	}
-	public long getResponseTime(){
-		return firstOrderStartTime;
-	}
+
 
 	public double getCPUUtilization(){
 		return cpu_utilization;
-	}
-	public double getThroughput(){
-		return throughput;
 	}
 
 	public int getCompletedOrders(){
 		return completedOrders;
 	}
 
-	public long getTurnaroundTime(){
-		return turnaroundtime;
+
+	//getter method for serviceStartTimes to be used by the patrons to record response and wait time
+	public Map<Integer, Long> getServiceStartTimes(){
+		return serviceStartTimes;
 	}
 
+	public long getSimStartTime(){
+		return simStartTime;
+	}
 
+	public long getSimEndTime(){
+		return simEndTime;
+	}
 
-//	private void logResponseTime(long responseTime) {
-//		System.out.println("Working dir = " + System.getProperty("user.dir"));
-//
-//		try(FileWriter fw = new FileWriter("./test_results/response_time.txt")) {
-//			String scheAlgo = (schedAlg == 0 ) ? "FSFC" : (schedAlg == 1) ? "SJF" : "RR";
-//			fw.write(String.format(
-//					"Scheduling Algorithm: " + scheAlgo + "\n" +
-//					"Response time (first patron served) : %.2f ms",
-//							responseTime / 1e6 // convert ns to sec
-//			));
-//		} catch (IOException e){
-//			e.printStackTrace();
-//		}
-//	}
 }
 
 

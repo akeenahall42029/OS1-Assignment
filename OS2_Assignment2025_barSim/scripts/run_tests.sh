@@ -20,7 +20,7 @@ for i in "${!PATRONS_LIST[@]}"; do
   S=${s_LIST[$i]}
   SEED=${SEED_LIST[$i]}
 
-  echo "Running tests for P=$PATRONS | Q=$Q | S=$S | Seed=$SEED"
+  echo "Running tests for P=$PATRONS | CONTEXT SWITCH (S)=$S | QUANTUM (Q) = $Q | Seed=$SEED"
 
   # FCFS (sched=0)
   java -cp bin barScheduling.SchedulingSimulation $PATRONS 0 $S 0  $SEED > "test_results/FCFS_results.txt"
