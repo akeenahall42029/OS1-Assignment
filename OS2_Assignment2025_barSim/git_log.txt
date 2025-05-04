@@ -1,3 +1,9 @@
+commit e2c05b70c7d17899ca3ba67ef7cf5d59228eb993
+Author: akeenahall42029 <hallake@DESKTOP-K462FL7.>
+Date:   Sun May 4 23:16:21 2025 +0200
+
+    fixed the average response time, waiting time, turnaround time and throughput
+
 commit d903b93e80182ad0f40be70fc047994224521b64
 Author: akeenahall42029 <hallake@DESKTOP-K462FL7.>
 Date:   Sun May 4 16:12:00 2025 +0200
