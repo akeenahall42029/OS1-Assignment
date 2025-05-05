@@ -31,7 +31,6 @@ public class Barman extends Thread {
 	private double cpu_utilization;
 
 	//variables for turnaround time
-	private long firstOrderStartTime = -1;
 	private long firstOrderSubmissionTime = -1; // might not need
 	private long lastDrinkCompletionTime = -1;
 	private final Map<Integer, Long> patronArrivalTimes = new ConcurrentHashMap<>();
