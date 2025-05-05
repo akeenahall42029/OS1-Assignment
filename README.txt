@@ -18,13 +18,9 @@ Once in the appropriate directory, simply run make run ARGS="30 1 5 30 in your t
 ## Running the Shell Scripts
 
 This project contains two helpful, robust shell scripts to help with algorithm analysis. Both tests produce large data samples,
-with   ```
-          run_Tests.sh
-         ``` producing 642 simulation results, and
-           ```
-              run_qTests.sh
-             ``` producing 196. Both take at least
+with   `run_Tests.sh` producing 642 simulation results, and `run_qTests.sh` producing 196. Both take at least
 15 minutes to run.
+
 1. Make the script executable
     - chmod +x scripts/run_qTests.sh
 2. Run using the command
@@ -33,4 +29,4 @@ with   ```
 
 ## Have a Happy, Happy Hour!
 
-##Thank you!
+## Thank you!
