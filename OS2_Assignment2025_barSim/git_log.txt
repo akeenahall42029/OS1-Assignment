@@ -1,3 +1,15 @@
+commit a9f2591951357b4d111929051f3468c37ad3dc78
+Author: akeenahall42029 <akeenadhall@gmail.com>
+Date:   Mon May 5 18:03:24 2025 +0200
+
+    created script for higher  values and added notes for README to come back to
+
+commit 2b08130564dd9bb9cd319bcbe044b4ab5ba14875
+Author: akeenahall42029 <akeenadhall@gmail.com>
+Date:   Mon May 5 01:53:56 2025 +0200
+
+    Created README
+
 commit 334db3195c97ff17ce51bbabef20b3032ea6c229
 Author: akeenahall42029 <hallake@DESKTOP-K462FL7.>
 Date:   Mon May 5 01:44:53 2025 +0200
