@@ -1,3 +1,40 @@
+commit ed00bd7833de2946d5dde2335a2de01ba26f6b51
+Merge: 57a3d84 e386701
+Author: akeenahall42029 <akeenadhall@gmail.com>
+Date:   Mon May 5 19:05:59 2025 +0200
+
+    WIP on main: 57a3d84 revised README
+
+commit e38670106ba5f92c8db617d870ae14085f810578
+Author: akeenahall42029 <akeenadhall@gmail.com>
+Date:   Mon May 5 19:05:59 2025 +0200
+
+    index on main: 57a3d84 revised README
+
+commit b55146b6e8ac3b87560ace12b276ebac9cb20734
+Author: Akeena Hall <41016318+akeenahall42029@users.noreply.github.com>
+Date:   Mon May 5 19:04:37 2025 +0200
+
+    Rename README.txt to README.md
+
+commit fe931c8527f95df7d96de045dcd96ec0ad676fc3
+Author: Akeena Hall <41016318+akeenahall42029@users.noreply.github.com>
+Date:   Mon May 5 19:03:21 2025 +0200
+
+    Update README.txt (hopefully has markup)
+
+commit a142a6765b3a7b49ed096587a6674e8618ba0da4
+Author: Akeena Hall <41016318+akeenahall42029@users.noreply.github.com>
+Date:   Mon May 5 18:59:43 2025 +0200
+
+    Update README.txt
+
+commit 57a3d84e754965e6cffa90177ce9c50c28b88131
+Author: akeenahall42029 <akeenadhall@gmail.com>
+Date:   Mon May 5 18:56:34 2025 +0200
+
+    revised README
+
 commit a9f2591951357b4d111929051f3468c37ad3dc78
 Author: akeenahall42029 <akeenadhall@gmail.com>
 Date:   Mon May 5 18:03:24 2025 +0200
